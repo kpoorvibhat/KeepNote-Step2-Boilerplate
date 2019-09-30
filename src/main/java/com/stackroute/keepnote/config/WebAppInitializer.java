@@ -1,5 +1,6 @@
 package com.stackroute.keepnote.config;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 
@@ -15,13 +16,13 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 	
-		return new Class[] {};
+		return new Class[] {ApplicationContextConfig.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 	
-		return new Class[] {};
+		return new Class[] {WebMvcConfig.class};
 	}
 
 	@Override
@@ -29,7 +30,5 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		
 		return new String[] {"/"};
 	}
-
-	
 
 }

@@ -34,6 +34,7 @@ public class NoteDAOImplTest {
 	@Before
 	public void setUp() {
 		noteDAO = new NoteDAOImpl(sessionFactory);
+		System.out.println("here");
 		note = new Note(1, "Testing-1", "Unit test for DAO", "active", LocalDateTime.now());
 	}
 
