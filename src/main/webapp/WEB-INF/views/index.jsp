@@ -33,10 +33,29 @@
           </form>
 
           <h3>Delete Note</h3>
-            <form action="deleteNote">
+            <form action="delete">
              <input type="text" name="noteId" />
-             <input type="submit"/>
+             <button type = "submit" > Delete </button>
            </form>
+
+             <h3>Update Note</h3>
+               <form action="update">
+               <label> Note Id: </label>
+               <input type="text" name="noteId" placeholder = "Note Id" /> <br>
+                <label> Note Title: </label>
+                <input type = "text" id = "noteTitle" name ="noteTitle" placeholder="Note Title" required/> <br>
+
+                <label> Note Content: </label>
+                <input type = "text" id="noteContent" name = "noteContent" placeholder = "Note Content" required/> <br>
+
+                <label> Note Status: </label>
+                <select name = "noteStatus">
+                <option value = "active"> Active </option>
+                <option value = "inactive"> Not Active </option>
+                </select> <br>
+               <button type = "submit" > Update </button>
+               </form>
+               </div>
 
 
 	<!-- display all existing notes in a tabular structure with Title,Content,Status, Created Date and Action -->
@@ -52,10 +71,11 @@
           </tr>
           <c:forEach items="${save}" var="note">
                <tr>
+                 <td> <c:out value="${note.noteId}"> </c:out></td>
                  <td> <c:out value="${note.noteTitle}"> </c:out></td>
                  <td> <c:out value="${note.noteContent}"> </c:out></td>
                  <td> <c:out value="${note.noteStatus}"> </c:out></td>
-                 <td> <c:out value="${note.createdAt}"></c:out></td>
+                 <td> <c:out value="${note.createdAt}"> </c:out></td>
                </tr>
           </c:forEach>
        </table>

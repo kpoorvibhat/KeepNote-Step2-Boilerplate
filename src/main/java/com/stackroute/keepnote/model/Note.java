@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  * any Java objects annotated with the @Entity annotation. If it finds any, then it will begin the 
  * process of looking through that particular Java object to recreate it as a table in your database.
  */
-@Entity
+@Entity(name = "Note")
 public class Note {
 
 	@Id
@@ -21,6 +21,18 @@ public class Note {
 	private String noteContent;
 	@Column(nullable = false)
 	private String noteStatus;
+
+	@Override
+	public String toString() {
+		return "Note{" +
+				"noteId=" + noteId +
+				", noteTitle='" + noteTitle + '\'' +
+				", noteContent='" + noteContent + '\'' +
+				", noteStatus='" + noteStatus + '\'' +
+				", createdAt=" + createdAt +
+				'}';
+	}
+
 	@Column(nullable = false)
 	private LocalDateTime createdAt;
 
@@ -55,7 +67,9 @@ public class Note {
 
 		return noteStatus;
 	}
-
+	public String getCreatedAt() {
+		return createdAt.toString();
+	}
 	public void setNoteId(int parseInt) {
 
 		this.noteId = parseInt;
