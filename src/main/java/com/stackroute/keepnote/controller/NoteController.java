@@ -109,7 +109,6 @@ public class NoteController {
         noteObject.setNoteContent(content);
         noteObject.setNoteStatus(status);
         noteObject.setCreatedAt(LocalDateTime.now());
-        System.out.println("Update method****" + noteObject);
         noteDAO.UpdateNote(noteObject);
         modelMap.addAttribute("save", noteDAO.getAllNotes());
         return "redirect:/";

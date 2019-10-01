@@ -80,15 +80,16 @@ public class NoteDAOImpl implements NoteDAO {
     /* Update existing note */
 
     public boolean UpdateNote(Note note) {
+
         if (getNoteById(note.getNoteId()) == null) {
         	return false;
 		}
         else {
-			sessionFactory.getCurrentSession().clear();
-        	sessionFactory.getCurrentSession().update(note);
-        	sessionFactory.getCurrentSession().flush();
-		}
-        return true;
+//            sessionFactory.getCurrentSession().clear();
+            sessionFactory.getCurrentSession().update(note);
+            sessionFactory.getCurrentSession().flush();
+            return true;
+        }
     }
 
     public SessionFactory getSessionFactory() {
